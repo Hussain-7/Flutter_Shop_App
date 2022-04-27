@@ -17,15 +17,17 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (ctx) => Products(),
       child: MaterialApp(
-          title: 'Flutter Demo',
-          theme: ThemeData(
-              primarySwatch: Colors.purple,
-              accentColor: Colors.deepOrange,
-              fontFamily: 'Lato'),
-          routes: {
-            "/": (ctx) => ProductOverviewScreen(),
-            ProductDetailScreen.route: (ctx) => ProductDetailScreen(),
-          }),
+        title: 'Flutter Demo',
+        theme: ThemeData(
+            primarySwatch: Colors.purple,
+            accentColor: Colors.deepOrange,
+            fontFamily: 'Lato'),
+        routes: {
+          "/": (ctx) => ProductOverviewScreen(),
+          ProductDetailScreen.route: (ctx) => ProductDetailScreen(),
+        },
+        debugShowCheckedModeBanner: false,
+      ),
     );
   }
 }
