@@ -16,15 +16,19 @@ class CartItem {
 }
 
 class Cart with ChangeNotifier {
-  late Map<String, CartItem> _items;
+  Map<String, CartItem> _items = new Map<String, CartItem>();
 
   Map<String, CartItem> get items {
     return {..._items};
   }
-  // Add item function to cart
 
-  void addItem(String productId, String title, int quantity, double price) {
-    if(_items.containsKey(productId)){
+  // Add item function to cart
+  int get itemCount {
+    return _items == null ? 0 : _items.length;
+  }
+
+  void addItem(String productId, String title, double price) {
+    if (_items.containsKey(productId)) {
       _items.update(
         productId,
         (existingCartItem) => CartItem(
@@ -45,5 +49,6 @@ class Cart with ChangeNotifier {
         ),
       );
     }
+    notifyListeners();
   }
 }
